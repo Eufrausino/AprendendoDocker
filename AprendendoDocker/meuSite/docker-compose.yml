@@ -1,0 +1,21 @@
+services:
+  backend:
+    image: back
+    pull_policy: never #Também poderia ser algum repositório
+    container_name: backend
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 8000:8000
+
+  frontend:
+    image: front
+    pull_policy: never
+    container_name: frontend
+    build:
+      context: ./front/
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
